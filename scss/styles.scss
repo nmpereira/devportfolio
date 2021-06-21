@@ -929,17 +929,8 @@ footer {
 */
 @media only screen and (min-width: 750px) {
   #the-canvas {
-    border: 1px solid black;
-    box-shadow: 0 50px 50px 0px rgba(0, 0, 0, 0.6);
-    direction: 1tr;
-
-    /* margin: 100px; */
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -976,17 +967,8 @@ footer {
     margin-left: 70px;
   }
   #the-canvas {
-    border: 1px solid black;
-    box-shadow: 0 50px 50px 0px rgba(0, 0, 0, 0.6);
-    direction: 1tr;
-    /* margin: 100px; */
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
+    width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -1003,16 +985,8 @@ footer {
     }
   }
   #the-canvas {
-    border: 1px solid black;
-    box-shadow: 0 50px 50px 0px rgba(0, 0, 0, 0.6);
-    direction: 1tr;
-    /* margin: 100px; */
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 }
 // Medium Devices
@@ -1060,17 +1034,8 @@ footer {
     }
   }
   #the-canvas {
-    border: 1px solid black;
-    box-shadow: 0 50px 50px 0px rgba(0, 0, 0, 0.6);
-    direction: 1tr;
-    /* margin: 100px; */
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
+    width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -1159,17 +1124,8 @@ footer {
     }
   }
   #the-canvas {
-    border: 1px solid black;
-    box-shadow: 0 50px 50px 0px rgba(0, 0, 0, 0.6);
-    direction: 1tr;
-    /* margin: 100px; */
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
+    width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 }
 
@@ -1190,24 +1146,48 @@ footer {
     }
   }
   #the-canvas {
-    border: 1px solid black;
-    box-shadow: 0 50px 50px 0px rgba(0, 0, 0, 0.6);
-    direction: 1tr;
-    /* margin: 100px; */
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 90%;
+    width: 100%;
     height: auto;
-    transform: translate(-50%, -50%);
   }
 }
 
 #page {
-  position: relative;
+  position: absolute;
 }
 
 #bodyback {
   background: url(../images/galaxy.jpg);
+}
+#resume {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+#resume-download {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  //color: $background;
+  a {
+    display: block;
+    color: $text;
+    padding: 10px;
+    border-radius: 4px;
+    background: $background;
+
+    &:hover {
+      color: lighten($text, 25%);
+      text-decoration: none;
+      background: lighten($background-alt, 25%);
+    }
+
+    &:focus {
+      color: darken($text, 25%);
+      text-decoration: none;
+    }
+  }
 }
