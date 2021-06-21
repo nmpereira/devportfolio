@@ -927,12 +927,6 @@ footer {
     ----- 12. Media Queries -----
     -----------------------------
 */
-@media only screen and (min-width: 750px) {
-  #the-canvas {
-    width: 100%;
-    height: auto;
-  }
-}
 
 // Collapse timeline
 @media only screen and (max-width: 750px) {
@@ -967,7 +961,7 @@ footer {
     margin-left: 70px;
   }
   #the-canvas {
-    width: 100%;
+    width: 50em;
     height: auto;
   }
 }
@@ -985,7 +979,7 @@ footer {
     }
   }
   #the-canvas {
-    width: 100%;
+    width: 50em;
     height: auto;
   }
 }
@@ -1034,7 +1028,7 @@ footer {
     }
   }
   #the-canvas {
-    width: 100%;
+    width: 50em;
     height: auto;
   }
 }
@@ -1124,7 +1118,7 @@ footer {
     }
   }
   #the-canvas {
-    width: 100%;
+    width: 35em;
     height: auto;
   }
 }
@@ -1146,11 +1140,22 @@ footer {
     }
   }
   #the-canvas {
+    width: 25em;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 350px) {
+  #the-canvas {
+    width: 20em;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 200px) {
+  #the-canvas {
     width: 100%;
     height: auto;
   }
 }
-
 #page {
   position: absolute;
 }
