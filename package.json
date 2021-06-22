@@ -31,7 +31,6 @@
   "dependencies": {
     "call-bind": "^1.0.2",
     "fast-levenshtein": "^3.0.0",
-    "node-sass": "^6.0.0",
-    "pdfjs-dist": "^2.8.335"
+    "node-sass": "^6.0.0"
   }
 }

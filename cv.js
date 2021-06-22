@@ -8,10 +8,10 @@
     // The workerSrc property shall be specified.
     //
     pdfjsLib.GlobalWorkerOptions.workerSrc =
-      "/node_modules/pdfjs-dist/build/pdf.worker.js";
+      "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/build/pdf.worker.js";
   
     // Some PDFs need external cmaps.
-    const CMAP_URL = "/node_modules/pdfjs-dist/cmaps/";
+    const CMAP_URL = "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/cmaps/";
     const CMAP_PACKED = true;
   
     const DEFAULT_URL = "nmpereira_cv.pdf";
