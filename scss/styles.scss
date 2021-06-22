@@ -929,42 +929,7 @@ footer {
 */
 
 // Collapse timeline
-@media only screen and (max-width: 750px) {
-  #experience-timeline {
-    margin: 30px auto 0 15%;
-    position: relative;
-    max-width: 1000px;
 
-    &:before,
-    &:after {
-      //left: 23px;
-      left: 0%;
-      //display: none;
-    }
-  }
-
-  .vtimeline-date {
-    width: auto;
-    text-align: left;
-    position: relative;
-    margin-bottom: 15px;
-    display: block;
-    margin-left: 70px;
-  }
-
-  .vtimeline-icon {
-    margin-left: 0;
-    //display: none;
-  }
-
-  .vtimeline-content {
-    margin-left: 70px;
-  }
-  #the-canvas {
-    width: 50em;
-    height: auto;
-  }
-}
 
 @media only screen and (max-width: 1092px) {
   #experience-timeline {
@@ -979,9 +944,12 @@ footer {
     }
   }
   #the-canvas {
+    
     width: 60em;
     height: auto;
+    
   }
+
 }
 // Medium Devices
 @media only screen and (max-width: 992px) {
@@ -1028,9 +996,12 @@ footer {
     }
   }
   #the-canvas {
+    
     width: 55em;
     height: auto;
+    
   }
+ 
 }
 
 // Small Devices
@@ -1118,9 +1089,69 @@ footer {
     }
   }
   #the-canvas {
+    
+    width: 35em;
+    height: auto;
+    
+  }
+  #pageContainer {
+  //display:none;
+}
+
+}
+
+
+@media only screen and (min-width: 750px) {
+  #the-canvas {
+    
+    width: 50em;
+    height: auto;
+    display:none;
+  }
+    #pageContainer {
+  //display:none;
+}
+  
+}
+@media only screen and (max-width: 750px) {
+  #experience-timeline {
+    margin: 30px auto 0 15%;
+    position: relative;
+    max-width: 1000px;
+
+    &:before,
+    &:after {
+      //left: 23px;
+      left: 0%;
+      //display: none;
+    }
+  }
+
+  .vtimeline-date {
+    width: auto;
+    text-align: left;
+    position: relative;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: 70px;
+  }
+
+  .vtimeline-icon {
+    margin-left: 0;
+    //display: none;
+  }
+
+  .vtimeline-content {
+    margin-left: 70px;
+  }
+  #the-canvas {
+    
     width: 35em;
     height: auto;
   }
+    #pageContainer {
+  display:none;
+}
 }
 
 // Extra Small Devices
@@ -1140,21 +1171,33 @@ footer {
     }
   }
   #the-canvas {
+    
     width: 25em;
     height: auto;
   }
+  #pageContainer {
+  display:none;
+}
 }
 @media only screen and (max-width: 350px) {
   #the-canvas {
+    
     width: 20em;
     height: auto;
   }
+  #pageContainer {
+  display:none;
+}
 }
 @media only screen and (max-width: 280px) {
   #the-canvas {
+    
     width: 100%;
     height: auto;
   }
+  #pageContainer {
+  display:none;
+}
 }
 #page {
   position: absolute;
@@ -1196,3 +1239,12 @@ footer {
     }
   }
 }
+#pageContainer {
+  
+  border:9px solid transparent !important;
+  border-image: url(https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/web/images/shadow.png) 9 9 repeat !important;
+
+}
+
+
+

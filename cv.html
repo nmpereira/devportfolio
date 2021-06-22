@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="../css/styles.css" rel="stylesheet" />
-    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+<html dir="ltr" mozdisallowselectionprint>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="google" content="notranslate">
+<link href="../css/styles.css" rel="stylesheet" />
+<link href="../css/bootstrap.min.css" rel="stylesheet"/>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
@@ -13,21 +13,33 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <title>Document</title>
-  </head>
-  <body id="bodyback">
-    <script src="//mozilla.github.io/pdf.js/build/pdf.js"></script>
-    <div id="resume">
-      <div id="resume-download">
-        <a href="../nmpereira_cv.pdf" download>
-          <i class="fa fa-download"></i> &nbsp; Download
-        </a>
-      </div>
-      <div id="pdf">
-        <canvas id="the-canvas"></canvas>
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/web/pdf_viewer.css">
+      
+    
+
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/build/pdf.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/web/pdf_viewer.js"></script>
+</head>
+
+<body id="bodyback">
+
+
+  
+  <div id="resume">
+    <div id="resume-download">
+      <a href="../nmpereira_cv.pdf" download>
+        <i class="fa fa-download"></i> &nbsp; Download
+      </a>
+    </div>
+    <div id="pdf">
+      <div id="pageContainer" class="pdfViewer singlePageView"></div>
+      <canvas id="the-canvas"></canvas>
+      
       </div>
     </div>
 
-    <script src="cv.js"></script>
-  </body>
+  <script src="cv.js"></script>
+</body>
 </html>
