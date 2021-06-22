@@ -960,7 +960,7 @@ footer {
   .vtimeline-content {
     margin-left: 70px;
   }
-  #the-canvas {
+  .the-canvas {
     width: 50em;
     height: auto;
   }
@@ -978,7 +978,7 @@ footer {
       display: none;
     }
   }
-  #the-canvas {
+  .the-canvas {
     width: 60em;
     height: auto;
   }
@@ -1027,7 +1027,7 @@ footer {
       display: none;
     }
   }
-  #the-canvas {
+  .the-canvas {
     width: 55em;
     height: auto;
   }
@@ -1117,7 +1117,7 @@ footer {
       left: -10%;
     }
   }
-  #the-canvas {
+  .the-canvas {
     width: 35em;
     height: auto;
   }
@@ -1139,19 +1139,19 @@ footer {
       padding: 5px 10px;
     }
   }
-  #the-canvas {
+  .the-canvas {
     width: 25em;
     height: auto;
   }
 }
 @media only screen and (max-width: 350px) {
-  #the-canvas {
+  .the-canvas {
     width: 20em;
     height: auto;
   }
 }
 @media only screen and (max-width: 280px) {
-  #the-canvas {
+  .the-canvas {
     width: 100%;
     height: auto;
   }
@@ -1196,3 +1196,7 @@ footer {
     }
   }
 }
+    #pageContainer {
+      //border:9px solid transparent !important;
+      //border-image: url(/node_modules/pdfjs-dist/web/images/shadow.png) 9 9 repeat !important;
+    }

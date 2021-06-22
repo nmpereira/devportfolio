@@ -1,91 +1,49 @@
-
-// If absolute URL from the remote server is provided, configure the CORS
-// header on that server.
-var url = 'nmpereira_cv.pdf';
-
-// Loaded via <script> tag, create shortcut to access PDF.js exports.
-var pdfjsLib = window['pdfjs-dist/build/pdf'];
-
-// The workerSrc property shall be specified.
-pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
-
-var pdfDoc = null,
-    pageNum = 1,
-    pageRendering = false,
-    pageNumPending = null,
-    //scale = 0.8,
-    scale = 1,
-    canvas = document.getElementById('the-canvas'),
-    ctx = canvas.getContext('2d');
-
-/**
- * Get page info from document, resize canvas accordingly, and render page.
- * @param num Page number.
- */
-function renderPage(num) {
-  pageRendering = true;
-  // Using promise to fetch the page
-  pdfDoc.getPage(num).then(function(page) {
-    var viewport = page.getViewport({scale: scale});
-    canvas.height = viewport.height;
-    canvas.width = viewport.width;
-
-    // Render PDF page into canvas context
-    var renderContext = {
-      canvasContext: ctx,
-      viewport: viewport
-    };
-    var renderTask = page.render(renderContext);
-
-    // Wait for rendering to finish
-    renderTask.promise.then(function() {
-      pageRendering = false;
-      if (pageNumPending !== null) {
-        // New page rendering is pending
-        renderPage(pageNumPending);
-        pageNumPending = null;
-      }
-    }).then(function() {
-      // Returns a promise, on resolving it will return text contents of the page
-      return page.getTextContent();
-    }).then(function(textContent) {
-
-      // Assign CSS to the textLayer element
-      var textLayer = document.querySelector(".textLayer");
-
-      textLayer.style.left = canvas.offsetLeft + 'px';
-      textLayer.style.top = canvas.offsetTop + 'px';
-      textLayer.style.height = canvas.offsetHeight + 'px';
-      textLayer.style.width = canvas.offsetWidth + 'px';
-
-      // Pass the data to the method for rendering of text over the pdf canvas.
-      pdfjsLib.renderTextLayer({
-        textContent: textContent,
-        container: textLayer,
-        viewport: viewport,
-        textDivs: []
+ "use strict";
+  
+    if (!pdfjsLib.getDocument || !pdfjsViewer.PDFPageView) {
+      // eslint-disable-next-line no-alert
+      alert("Please build the pdfjs-dist library using\n  `gulp dist-install`");
+    }
+  
+    // The workerSrc property shall be specified.
+    //
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "/node_modules/pdfjs-dist/build/pdf.worker.js";
+  
+    // Some PDFs need external cmaps.
+    const CMAP_URL = "/node_modules/pdfjs-dist/cmaps/";
+    const CMAP_PACKED = true;
+  
+    const DEFAULT_URL = "nmpereira_cv.pdf";
+    const PAGE_TO_VIEW = 1;
+    const SCALE = 1.0;
+  
+    const container = document.getElementById("pageContainer");
+  
+    const eventBus = new pdfjsViewer.EventBus();
+  
+    // Loading document.
+    const loadingTask = pdfjsLib.getDocument({
+      url: DEFAULT_URL,
+      cMapUrl: CMAP_URL,
+      cMapPacked: CMAP_PACKED,
+    });
+    loadingTask.promise.then(function (pdfDocument) {
+      // Document loaded, retrieving the page.
+      return pdfDocument.getPage(PAGE_TO_VIEW).then(function (pdfPage) {
+        // Creating the page view with default parameters.
+        const pdfPageView = new pdfjsViewer.PDFPageView({
+          container,
+          id: PAGE_TO_VIEW,
+          scale: SCALE,
+          defaultViewport: pdfPage.getViewport({ scale: SCALE }),
+          eventBus,
+          // We can enable text/annotations layers, if needed
+          textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
+          annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
+        });
+        // Associates the actual page with the view, and drawing it
+        pdfPageView.setPdfPage(pdfPage);
+        return pdfPageView.draw();
       });
     });
-  });
-
-  
-  
-}
-
-
-
-
-
-
-
-/**
- * Asynchronously downloads PDF.
- */
-pdfjsLib.getDocument(url).promise.then(function(pdfDoc_) {
-  pdfDoc = pdfDoc_;
-
-
-  // Initial/first page rendering
-  renderPage(pageNum);
-});
-
