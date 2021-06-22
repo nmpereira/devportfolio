@@ -1,4 +1,6 @@
  "use strict";
+
+
   
     if (!pdfjsLib.getDocument || !pdfjsViewer.PDFPageView) {
       // eslint-disable-next-line no-alert
@@ -14,9 +16,9 @@
     const CMAP_URL = "https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/cmaps/";
     const CMAP_PACKED = true;
   
-    const DEFAULT_URL = "nmpereira_cv.pdf";
+    const DEFAULT_URL = "../nmpereira_cv.pdf";
     const PAGE_TO_VIEW = 1;
-    const SCALE = 1.0;
+    const SCALE = 0.835;
   
     const container = document.getElementById("pageContainer");
   
@@ -47,3 +49,49 @@
         return pdfPageView.draw();
       });
     });
+
+    // If absolute URL from the remote server is provided, configure the CORS
+// header on that server.
+var url = DEFAULT_URL;
+
+// Loaded via <script> tag, create shortcut to access PDF.js exports.
+var pdfjsLib = window['pdfjs-dist/build/pdf'];
+
+// The workerSrc property shall be specified.
+//pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/build/pdf.worker.js';
+
+// Asynchronous download of PDF
+var loadingTaskmobile = pdfjsLib.getDocument(url);
+loadingTaskmobile.promise.then(function(pdf) {
+  console.log('PDF loaded');
+
+  // Fetch the first page
+  var pageNumber = 1;
+  pdf.getPage(pageNumber).then(function(page) {
+    console.log('Page loaded');
+
+    var scale = 1.5;
+    var viewport = page.getViewport({
+      scale: scale
+    });
+
+    // Prepare canvas using PDF page dimensions
+    var canvas = document.getElementById('the-canvas');
+    var context = canvas.getContext('2d');
+    canvas.height = viewport.height;
+    canvas.width = viewport.width;
+
+    // Render PDF page into canvas context
+    var renderContext = {
+      canvasContext: context,
+      viewport: viewport
+    };
+    var renderTask = page.render(renderContext);
+    renderTask.promise.then(function() {
+      console.log('Page rendered');
+    });
+  });
+}, function(reason) {
+  // PDF loading error
+  console.error(reason);
+});
