@@ -1,7 +1,7 @@
+//Main view code-pageContainer//
+ 
  "use strict";
 
-
-  
     if (!pdfjsLib.getDocument || !pdfjsViewer.PDFPageView) {
       // eslint-disable-next-line no-alert
       alert("Please build the pdfjs-dist library using\n  `gulp dist-install`");
@@ -18,7 +18,7 @@
   
     const DEFAULT_URL = "../nmpereira_cv.pdf";
     const PAGE_TO_VIEW = 1;
-    const SCALE = 0.835;
+    const SCALE = 1;
   
     const container = document.getElementById("pageContainer");
   
@@ -50,15 +50,22 @@
       });
     });
 
+
+
+    //MOBILE VIEW CODE-the-canvas//
+
     // If absolute URL from the remote server is provided, configure the CORS
 // header on that server.
-var url = DEFAULT_URL;
+var url = '../nmpereira_cv.pdf';
+
 
 // Loaded via <script> tag, create shortcut to access PDF.js exports.
 var pdfjsLib = window['pdfjs-dist/build/pdf'];
 
 // The workerSrc property shall be specified.
-//pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/build/pdf.worker.js';
+
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/build/pdf.worker.js';
+
 
 // Asynchronous download of PDF
 var loadingTaskmobile = pdfjsLib.getDocument(url);
