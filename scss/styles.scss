@@ -49,7 +49,7 @@ $heading: #91b4b6;
 $text: #e5ecec;
 
 //background image
-$backgroundImage: url(../images/galaxy.jpg);
+$backgroundImage: darken($base-color, 10%);
 
 /*
     ---------------------
@@ -330,7 +330,7 @@ footer {
   font-weight: 300;
   margin: 0 0 30px 0;
 
-  background: darken($base-color, 15%);
+  background: darken($base-color, 5%);
   border: 0.3px solid $border;
   padding: 3px 15px;
   border-radius: 25px;
@@ -930,7 +930,6 @@ footer {
 
 // Collapse timeline
 
-
 @media only screen and (max-width: 1092px) {
   #experience-timeline {
     margin: 30px auto 0 5%;
@@ -944,12 +943,9 @@ footer {
     }
   }
   #the-canvas {
-    
     width: 60em;
     height: auto;
-    
   }
-
 }
 // Medium Devices
 @media only screen and (max-width: 992px) {
@@ -996,12 +992,9 @@ footer {
     }
   }
   #the-canvas {
-    
     width: 55em;
     height: auto;
-    
   }
- 
 }
 
 // Small Devices
@@ -1089,29 +1082,23 @@ footer {
     }
   }
   #the-canvas {
-    
     width: 35em;
     height: auto;
-    
   }
   #pageContainer {
-  //display:none;
+    //display: none;
+  }
 }
-
-}
-
 
 @media only screen and (min-width: 750px) {
   #the-canvas {
-    
     width: 50em;
     height: auto;
     display:none;
   }
-    #pageContainer {
-  //display:none;
-}
-  
+  #pageContainer {
+    //display: none;
+  }
 }
 @media only screen and (max-width: 750px) {
   #experience-timeline {
@@ -1145,13 +1132,12 @@ footer {
     margin-left: 70px;
   }
   #the-canvas {
-    
     width: 35em;
     height: auto;
   }
-    #pageContainer {
-  display:none;
-}
+  #pageContainer {
+    display: none;
+  }
 }
 
 // Extra Small Devices
@@ -1171,32 +1157,29 @@ footer {
     }
   }
   #the-canvas {
-    
     width: 25em;
     height: auto;
   }
   #pageContainer {
-  display:none;
-}
+    display: none;
+  }
 }
 @media only screen and (max-width: 350px) {
   #the-canvas {
-    
     width: 20em;
     height: auto;
   }
   #pageContainer {
-  display:none;
-}
+    display: none;
+  }
 }
 @media only screen and (max-width: 280px) {
   #the-canvas {
-    
     width: 100%;
     height: auto;
   }
   #pageContainer {
-  display:none;
+  display: none;
 }
 }
 #page {
@@ -1204,14 +1187,15 @@ footer {
 }
 
 #bodyback {
-  background: url(../images/galaxy.jpg);
+  background: $backgroundImage;
 }
 #resume {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: auto;
+  height: 90%;
   transform: translate(-50%, -50%);
+  
 }
 #resume-download {
   display: flex;
@@ -1240,11 +1224,7 @@ footer {
   }
 }
 #pageContainer {
-  
-  border:9px solid transparent !important;
-  border-image: url(https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/web/images/shadow.png) 9 9 repeat !important;
-
+  border: 9px solid transparent !important;
+  border-image: url(https://cdn.jsdelivr.net/npm/pdfjs-dist@2.9.359/web/images/shadow.png)
+    9 9 repeat !important;
 }
-
-
-
