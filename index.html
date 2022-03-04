@@ -330,23 +330,23 @@
                 <div id="contact">
                     <h2>Get in Touch</h2>
                     <div id="contact-form">
-
-                        <!-- <form name="contact" method="POST" data-netlify-recaptcha="true" data-netlify="true"> -->
                         <form name="contact" method="POST" data-netlify="true">
                             <p>
-                                <input type="text" name="name" placeholder="Name" />
+                                <label>Your Name: <input type="text" name="name" /></label>
                             </p>
                             <p>
-                                <input type="email" name="email" placeholder="Email" />
-
+                                <label>Your Email: <input type="email" name="email" /></label>
                             </p>
-                            <p><textarea name="message" placeholder="Your message" required></textarea></p>
+                            <!-- <p>
+                                <label>Your Role: <select name="role[]" multiple>
+                                        <option value="leader">Leader</option>
+                                        <option value="follower">Follower</option>
+                                    </select></label>
+                            </p> -->
                             <p>
-
-                                <!-- <div data-netlify-recaptcha="true"></div> -->
+                                <label>Message: <textarea name="message"></textarea></label>
                             </p>
                             <p>
-
                                 <button type="submit">Send</button>
                             </p>
                         </form>
